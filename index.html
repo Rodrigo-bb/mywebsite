@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COPERMARKET - Tu Tienda de Tecnología</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #000000;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        .nav-item:hover {
+            color: #63b3ed;
+            text-shadow: 0 0 10px #63b3ed;
+        }
+        main {
+            padding-top: 60px;
+        }
+        .hero {
+            background: linear-gradient(to right, #3182ce, #805ad5);
+            color: white;
+            padding: 4rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            transition: text-shadow 0.3s;
+            max-width: 800px;
+        }
+        .hero-title:hover {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        .hero-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 2rem;
+            width: 100%;
+        }
+        .hero-text, .hero-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-image-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .description-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            text-align: justify;
+            flex-grow: 1;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: rgb(29, 28, 28);
+            color: #fefefe;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+        }
+        .cta-button:hover {
+            background-color: #e2e8f0;
+        }
+        .phones, .about {
+            padding: 4rem 0;
+        }
+        .phones {
+            background-color: white;
+        }
+        .about {
+            background-color: #f7fafc;
+        }
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .phone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .phone-card {
+            background-color: #f7fafc;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .phone-card:hover {
+            transform: scale(1.05);
+        }
+        .phone-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .phone-card:hover img {
+            transform: scale(1.1);
+        }
+        .phone-info {
+            padding: 1.5rem;
+        }
+        .phone-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .learn-more {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .about-image img {
+            width: 40%;
+            height: 40;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            font-weight: bold;
+            text-align: center;
+        }
+        footer {
+            background-color: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .hero-body, .about-content {
+                flex-direction: column;
+            }
+            .hero-text, .hero-image {
+                width: 100%;
+            }
+            .hero-image {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="Img/Logo.jpg" alt="COPERMARKET Logo" class="logo-image">
+                <a href="#" class="logo-text">COPERMARKET</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">PAGINA PRINCIPAL</a>
+                <a href="contactos.html" class="nav-item">CONTACTO</a>
+                <a href="Productos.html" class="nav-item">PRODUCTOS</a>
+                <a href="equipo.html" class="nav-item">EQUIPO</a>
+                
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">BIENVENIDO A NUESTRA TIENDA DE TECNOLOGIA DE ULTIMO MODELO</h1>
+                    <div class="hero-body">
+                        <div class="hero-text">
+                            <div class="description-box">
+                                <p>Tu mundo en la palma de tu mano</p>
+                                <p>En COPERMARKET, no solo vendemos celulares, ¡te conectamos con el futuro! Cada uno de nuestros dispositivos es una puerta a infinitas posibilidades: desde capturar tus momentos más épicos hasta tener el mundo entero a un toque de distancia.</p>
+                                <p>Somos más que una tienda de celulares; somos tu aliado tecnológico. Trabajamos con las marcas más icónicas para ofrecerte no solo los últimos modelos, sino las herramientas que te permiten transformar tu vida cotidiana.</p>
+                                <p>Aquí, no se trata solo de comprar un celular, se trata de elegir el dispositivo que te acompañará en todas tus aventuras digitales. Con nuestro equipo experto y un servicio hecho a tu medida, cada cliente sale con más que un celular: con una experiencia de conexión y estilo.</p>
+                            </div>
+                            <a href="Productos.html" class="cta-button">Explorar Teléfonos</a>
+                        </div>
+                        <div class="hero-image">
+                            <div class="hero-image-container">
+                                <img src="Img/fode.black.jpeg" alt="iPhone 14 Pro en Space Black">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="phones" class="phones">
+            <div class="container">
+                <h2>Nuestra Colección de Teléfonos</h2>
+                <div class="phone-grid">
+                    <div class="phone-card">
+                        <img src="Img/iphone.jpeg" alt="iPhone">
+                        <div class="phone-info">
+                            <h3>iPhone</h3>
+                            <p>Últimos modelos disponibles</p>
+                            <a href="Productos.html" class="learn-more">Saber más →</a>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <img src="Img/samsumg.jpeg" alt="Samsung">
+                        <div class="phone-info">
+                            <h3>Samsung</h3>
+                            <p>Últimos modelos disponibles</p>
+                            <a href="Productos.html" class="learn-more">Saber más →</a>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <img src="Img/real.jpeg" alt="Honor">
+                        <div class="phone-info">
+                            <h3>Honor</h3>
+                            <p>Últimos modelos disponibles</p>
+                            <a href="Productos.html" class="learn-more">Saber más →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Sobre Nosotros</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="Img/equipo.jpeg" alt="Nuestro Equipo">
+                    </div>
+                    <div class="about-text">
+                        <p>En COPERMARKET, nos apasiona conectarte con lo último y lo mejor en tecnología móvil. Nuestro equipo de expertos se dedica a ofrecerte una selección cuidadosa de smartphones de alta calidad de marcas líderes como iPhone, Samsung y Honor.</p>
+                        <p>Con años de experiencia en la industria, nos enorgullecemos de ofrecer no solo productos, sino soluciones móviles completas adaptadas a tus necesidades. Desde características de vanguardia hasta un rendimiento confiable, nos aseguramos de que cada dispositivo en nuestro inventario cumpla con nuestros altos estándares de excelencia.</p>
+                        <a href="contactos.html" class="cta-button">Contáctanos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 COPERMARKET. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
